@@ -70,19 +70,29 @@ int main()
     si(t);
     for (int iter = 0; iter < t; iter++)
     {
-        int n;
-        si(n);
-        for (int i = 0; i < n; i++)
+        ll n;
+        cin >> n;
+        ll v[n];
+        for(int i=0;i<n;i++){ cin >> v[i];}
+        ll cnt(0), two(0);
+       for(int i=0;i<n;i++)
         {
-            int tem;
-            si(tem);
+            if (v[i] == 1)
+                cnt++;
+            if (v[i] == 2)
+                two++;
         }
-        int res = 0;
 
-        if (iter == t - 1)
-            cout << res;
-        else
-            cout << res << endl;
+        ll ans = (cnt * (n - cnt));
+        if (cnt > 1)
+        {
+            ans += ((cnt * (cnt - 1)) / 2);
+        }
+        if (two > 1)
+        {
+            ans += ((two * (two - 1)) / 2);
+        }
+        cout << ans << endl;
     }
     return 0;
 }

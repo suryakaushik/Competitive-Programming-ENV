@@ -70,19 +70,71 @@ int main()
     si(t);
     for (int iter = 0; iter < t; iter++)
     {
-        int n;
-        si(n);
-        for (int i = 0; i < n; i++)
-        {
-            int tem;
-            si(tem);
-        }
-        int res = 0;
+        
+          ll a,b;
+           cin >> a >> b;
+           if(a%2!=0 && b%2!=0){
+                cout << -1 << endl;
+           }
+           else if(a==1 || b==1){
+                cout << -1 << endl;
+           }
 
-        if (iter == t - 1)
-            cout << res;
-        else
-            cout << res << endl;
+            else {
+            string s;
+            if(a%2!=0){
+                for(ll i=0;i<(b/2);i++){
+                    s+='b';
+                }
+                for(ll i=0;i<(a-1)/2;i++){
+                    s+='a';
+                }
+                string temp=s;
+                s+='a';
+                reverse(temp.begin(),temp.end());
+                s+=temp;
+                cout << s << endl;
+                ll k=b/2+(a-1)/2-1;
+                swap(s[0],s[k]);
+                swap(s[k+2],s[a+b-1]);
+                cout << s << endl;    
+            }
+            else if(b%2!=0){
+                     for(ll i=0;i<(a/2);i++){
+                    s+='a';
+                }
+                for(ll i=0;i<(b-1)/2;i++){
+                    s+='b';
+                }
+                string temp=s;
+                s+='b';
+                reverse(temp.begin(),temp.end());
+                s+=temp;
+                cout << s << endl;
+                ll k=a/2+(b-1)/2-1;
+                swap(s[0],s[k]);
+                swap(s[k+2],s[a+b-1]);
+                cout << s << endl;    
+            }
+            else{
+                     for(ll i=0;i<(b/2);i++){
+                    s+='b';
+                }
+                for(ll i=0;i<(a)/2;i++){
+                    s+='a';
+                }
+                string temp=s;
+                //s+='a';
+                reverse(temp.begin(),temp.end());
+                s+=temp;
+                cout << s << endl;
+                ll k=b/2+a/2-1;
+                swap(s[0],s[k]);
+                swap(s[k+1],s[a+b-1]);
+                cout << s << endl;    
+            }
+           }
+       
     }
     return 0;
 }

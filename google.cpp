@@ -1,16 +1,7 @@
+
+
 #include <bits/stdc++.h>
 using namespace std;
-// #include <iomanip>
-// #include "stdafx.h"
-// #pragma warning(disable : 4996) //_CRT_SECURE_NO_WARNINGS
-
-// cout.width(5), precision(2), fill(' '), setf(ios::fixed, ios::floatfield, ios::showpos, ios::showpoint), unsetf()
-// cout << setiosflags(ios::showpos); cout << setfill('*') << setw(10);
-
-// SPLIT SENTENCE
-// istringstream ss(str); string word;
-// while (ss >> word) cout << word;
-
 #define gc getchar_unlocked
 #define PI 3.1415926535897932384626
 const int mod = 1000000007;
@@ -47,7 +38,6 @@ typedef vector<vl> vvl;
 int mpow(int base, int exp);
 void ipgraph(int m);
 void dfs(int u, int par);
-//=======================
 
 vi g[N];
 int a[N];
@@ -59,8 +49,10 @@ unordered_map<int, int> cnt[rtn + 1];
 
 int main()
 {
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     // cin.tie(0);
@@ -77,12 +69,15 @@ int main()
             int tem;
             si(tem);
         }
-        int res = 0;
 
-        if (iter == t - 1)
-            cout << res;
-        else
-            cout << res << endl;
+        cout << "Case #" << iter + 1 << ": ";
+        int res = 0;
+        for (int i = 0; i < n; i++)
+        {
+            res = 0;
+        }
+        cout << res << endl;
     }
+
     return 0;
 }

@@ -1,3 +1,5 @@
+// https://www.codechef.com/START34D?order=desc&sortBy=successful_submissions
+
 #include <bits/stdc++.h>
 using namespace std;
 // #include <iomanip>
@@ -68,21 +70,77 @@ int main()
 
     int t;
     si(t);
-    for (int iter = 0; iter < t; iter++)
+    for (int p = 0; p < t; p++)
     {
-        int n;
-        si(n);
-        for (int i = 0; i < n; i++)
+        ll n;
+        cin >> n;
+        ll flag = 0;
+        string s;
+        cin >> s;
+        ll one[n + 1] = {};
+        ll zero[n + 1] = {};
+        ll diff;
+        if (n % 2 == 1)
         {
-            int tem;
-            si(tem);
+            cout << "NO\n";
         }
-        int res = 0;
-
-        if (iter == t - 1)
-            cout << res;
         else
-            cout << res << endl;
+        {
+            for (int i = 0; i < n; i++)
+            {
+                if (s[i] == '1')
+                {
+                    one[i + 1] = 1 + one[i];
+                    zero[i + 1] = zero[i];
+                }
+                else
+                {
+                    one[i + 1] = one[i];
+                    zero[i + 1] = zero[i] + 1;
+                }
+            }
+            if (zero[n] > one[n])
+            {
+                diff = (zero[n] - one[n]) / 2;
+                for (int i = 1; i <= n; i++)
+                {
+                    if (zero[i] - one[i] == diff)
+                    {
+                        cout << "YES\n";
+                        flag = 1;
+                        cout << "1 " << i << "\n";
+                        break;
+                    }
+                }
+                if (flag == 0)
+                {
+                    cout << "NO\n";
+                }
+            }
+            else if (zero[n] < one[n])
+            {
+                diff = (one[n] - zero[n]) / 2;
+                for (int i = 1; i <= n; i++)
+                {
+                    if (one[i] - zero[i] == diff)
+                    {
+                        cout << "YES\n";
+                        flag = 1;
+                        cout << "1 " << i << "\n";
+                        break;
+                    }
+                }
+                if (flag == 0)
+                {
+                    cout << "NO\n";
+                }
+            }
+            else
+            {
+                cout << "YES\n";
+                cout << "1 " << n << "\n";
+            }
+        }
     }
     return 0;
 }

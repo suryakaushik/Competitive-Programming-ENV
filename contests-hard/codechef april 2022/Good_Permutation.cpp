@@ -1,3 +1,5 @@
+// https://www.codechef.com/START34D?order=desc&sortBy=successful_submissions
+
 #include <bits/stdc++.h>
 using namespace std;
 // #include <iomanip>
@@ -68,21 +70,34 @@ int main()
 
     int t;
     si(t);
-    for (int iter = 0; iter < t; iter++)
+    for (int p = 0; p < t; p++)
     {
-        int n;
-        si(n);
-        for (int i = 0; i < n; i++)
+        ll n;
+        cin >> n;
+        if (n % 2 == 1)
         {
-            int tem;
-            si(tem);
+            if (n == 1 || n == 3)
+            {
+                cout << "-1\n";
+            }
+            else
+            {
+                cout << "3 5 1 2 4 ";
+                for (int i = n; i >= 6; i--)
+                {
+                    cout << i << " ";
+                }
+                cout << "\n";
+            }
         }
-        int res = 0;
-
-        if (iter == t - 1)
-            cout << res;
         else
-            cout << res << endl;
+        {
+            for (int i = 1; i <= n; i++)
+            {
+                cout << n + 1 - i << " ";
+            }
+            cout << "\n";
+        }
     }
     return 0;
 }
