@@ -1,5 +1,3 @@
-
-
 #include <bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
@@ -49,10 +47,10 @@ unordered_map<int, int> cnt[rtn + 1];
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     // cin.tie(0);
@@ -69,9 +67,10 @@ int main()
             int tem;
             si(tem);
         }
-
         cout << "Case #" << iter + 1 << ": ";
         int res = 0;
+
+
         for (int i = 0; i < n; i++)
         {
             res = 0;

@@ -12,6 +12,11 @@ using namespace std;
 // while (ss >> word) cout << word;
 
 #define gc getchar_unlocked
+#define set_bits __builtin_popcountll
+
+#define MOD 1000000007
+#define MOD1 998244353
+#define INF 1e18
 #define PI 3.1415926535897932384626
 const int mod = 1000000007;
 const int N = 3e5, M = N;
@@ -19,7 +24,10 @@ const int N = 3e5, M = N;
 #define fo(i, n) for (i = 0; i < n; i++)
 #define Fo(i, k, n) for (i = k; k < n ? i < n : i > n; k < n ? i += 1 : i -= 1)
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
+
 #define ll long long
+typedef unsigned long long ull;
+typedef long double lld;
 #define si(x) cin >> x
 #define sl(x) cin >> x
 #define ss(s) cin >> s
@@ -63,6 +71,7 @@ int main()
     // freopen("output.txt", "w", stdout);
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
+    cout.tie(NULL);
     // cin.tie(0);
     // cout.tie(0);
 
@@ -70,48 +79,49 @@ int main()
     si(t);
     for (int iter = 0; iter < t; iter++)
     {
-        int n;
+        int x, n;
+        si(x);
         si(n);
-        vi a;
-        unordered_set<int> s;
-        for (int i = 0; i < n; i++)
-        {
-            int tem;
-            si(tem);
-            a.push_back(tem);
-            s.insert(tem);
-        }
-        bool res = false;
-        for (int i = 0; i < n; i++)
-        {
-            bool flag = false;
-            for (int j = 0; j < n; j++)
-            {
-                if (s.find(3 * a[i] - 2 * a[j])!=s.end() || s.find((int)(3 * a[i] / 2 - a[j] / 2))!=s.end())
-                {
-                    flag = false;
-                }
-                else if (s.find(3 * a[j] - 2 * a[i])!=s.end() || s.find((int)(3 * a[j] / 2 - a[i] / 2))!=s.end())
-                {
-                    flag = false;
-                }
-                else
-                {
-                    flag = true;
-                    break;
-                }
-            }
-            if (flag)
-            {
-                res = true;
-                break;
-            }
-        }
+        long long res = 1;
+        bool flag = true;
+        if(x==1)res=0;
 
-        if (res)
-            cout << "YES" << endl;
-        else
-            cout << "NO" << endl;
+        if (x == n)
+        {
+            res=(x - 1) * 12;
+        }
+        if(x==2 && n==2)res=2;
+        if(x==3 && n==3)res=6;
+        // while(x>n){
+
+        // }
+        // while(x<n)(
+
+        // )
+        if (x < n)
+        {
+            res=(x - 1) *12* ((2 * n) - x) ;
+        }
+        
+            cout << res << endl;
+            continue;
+        // while (true)
+        // {
+        //     if (x != n && flag)
+        //     {
+        //         x++;
+        //     }
+        //     if (!flag)
+        //     {
+        //         x--;
+        //     }
+        //     flag = !flag;
+        //     if (x == 1)
+        //     {
+        //         cout << res << endl;
+        //         break;
+        //     }
+        // }
     }
     return 0;
 }

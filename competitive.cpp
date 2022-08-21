@@ -12,6 +12,11 @@ using namespace std;
 // while (ss >> word) cout << word;
 
 #define gc getchar_unlocked
+#define set_bits __builtin_popcountll
+
+#define MOD 1000000007
+#define MOD1 998244353
+#define INF 1e18
 #define PI 3.1415926535897932384626
 const int mod = 1000000007;
 const int N = 3e5, M = N;
@@ -19,7 +24,10 @@ const int N = 3e5, M = N;
 #define fo(i, n) for (i = 0; i < n; i++)
 #define Fo(i, k, n) for (i = k; k < n ? i < n : i > n; k < n ? i += 1 : i -= 1)
 #define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
+
 #define ll long long
+typedef unsigned long long ull;
+typedef long double lld;
 #define si(x) cin >> x
 #define sl(x) cin >> x
 #define ss(s) cin >> s
@@ -63,6 +71,7 @@ int main()
     // freopen("output.txt", "w", stdout);
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
+    cout.tie(NULL);
     // cin.tie(0);
     // cout.tie(0);
 
