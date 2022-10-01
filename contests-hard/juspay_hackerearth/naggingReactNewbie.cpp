@@ -1,3 +1,71 @@
+// Nagging 6 fail
+#include <bits/stdc++.h>
+using namespace std;
+
+bool canBeVisited(vector<vector<int>> &myGraph, vector<bool> &isVisited,
+                  int ind, int dest) {
+  if (ind == dest) {
+    return true;
+  }
+  isVisited[ind] = true;
+  for (auto j : myGraph[ind]) {
+    if (!isVisited[j]) {
+      if (j == dest) {
+        return true;
+      } else {
+        if (canBeVisited(myGraph, isVisited, j, dest)) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+int main() {
+  int num;
+  cin >> num;
+  unordered_map<int, int> mapping, reverseMapping;
+  for (int i = 0; i < num; i++) {
+    int tem;
+    cin >> tem;
+    mapping[tem] = i;
+    reverseMapping[i] = tem;
+  }
+
+  vector<vector<int>> myGraph(num);
+  vector<vector<int>> graph(num);
+  int p;
+  cin >> p;
+  while (p--) {
+    int src, dest;
+    cin >> src >> dest;
+    myGraph[mapping[dest]].push_back(mapping[src]);
+    graph[mapping[src]].push_back(mapping[dest]);
+  }
+
+  int src, dest;
+  cin >> src >> dest;
+  src = mapping[src];
+  dest = mapping[dest];
+
+  set<int> result;
+  for (int iter : myGraph[dest]) {
+    vector<bool> isVisited(num, false);
+    if (canBeVisited(graph, isVisited, src, iter)) {
+      result.insert(reverseMapping[iter]);
+    }
+  }
+  if (result.size() == 0) {
+    cout << -1;
+  } else {
+    for (int i : result) {
+      cout << i << " ";
+    }
+  }
+  cout << endl;
+}
+
 // Nagging 18 pass-->DFS from a to b, save all predecessors of b-->Use Union-find Algo(Disjoint Set), try to remove each edge and check if both a and b have different parents.
 #include <bits/stdc++.h>
 using namespace std;
